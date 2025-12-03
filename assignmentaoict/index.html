@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favourite Show - Mohad's Portfolio</title>
-    <!-- Load custom styles -->
+    <title>Home - Mohad's Portfolio</title>
+    <!-- Load custom styles from style.css (must be in the same folder) -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="aot-bg">
-    
+<body>
+
     <!-- Simple Navigation Bar -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">Mohad's Website</a>
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="index.html" class="active">Home</a>
                 <a href="hobbies.html">Hobbies</a>
                 <a href="skills.html">Skills</a>
-                <a href="favshow.html" class="active">Favourite Show</a>
+                <a href="favshow.html">Favourite Show</a>
                 
                 <!-- Day / Night Toggle Switch -->
                 <label class="switch">
@@ -28,19 +28,20 @@
         </div>
     </nav>
 
-    <!-- Content is placed inside the special aot-container class -->
-    <div class="aot-container">
-        <h1>My Favourite Show</h1>
-        <h2>Attack on Titan (Shingeki no Kyojin)</h2>
-        <p>
-            It's the best show ever! The story has incredible plot twists, and the action scenes are always exciting. The music makes every episode feel epic.
-        </p>
-        <a class="btn" href="index.html">Back to Home</a>
+    <div class="container">
+        <h1>Welcome to Mohad's Portfolio</h1>
+        <p>This is the landing page for my project, built using HTML, CSS, and basic JavaScript. Use the navigation bar above or the buttons below to explore my profile!</p>
+
+        <!-- Links to all 3 main pages -->
+        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <a class="btn" href="hobbies.html">My Hobbies</a>
+            <a class="btn" href="skills.html">My Skills</a>
+            <a class="btn" href="favshow.html">My Favourite Show</a>
+        </div>
     </div>
 
     <script>
         // --- BASIC JAVASCRIPT FOR DARK MODE ---
-        // NOTE: Dark mode on this page primarily affects the navigation bar.
         
         // 1. Get the elements
         const modeToggle = document.getElementById('mode-toggle');

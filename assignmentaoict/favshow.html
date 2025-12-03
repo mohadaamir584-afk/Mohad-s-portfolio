@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourite Show - Mohad's Portfolio</title>
+    <!-- Load custom styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="aot-bg">
+    
+    <!-- Simple Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Mohad's Website</a>
+            <div class="nav-links">
+                <a href="hobbies.html">Hobbies</a>
+                <a href="skills.html">Skills</a>
+                <a href="favshow.html" class="active">Favourite Show</a>
+                
+                <!-- Day / Night Toggle Switch -->
+                <label class="switch">
+                    <input type="checkbox" id="mode-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content is placed inside the special aot-container class -->
+    <div class="aot-container">
+        <h1>My Favourite Show</h1>
+        <h2>Attack on Titan (Shingeki no Kyojin)</h2>
+        <p>
+            It's the best show ever! The story has incredible plot twists, and the action scenes are always exciting. The music makes every episode feel epic.
+        </p>
+        <a class="btn" href="index.html">Back to Home</a>
+    </div>
+
+    <script>
+        // --- BASIC JAVASCRIPT FOR DARK MODE ---//
+        
+        const modeToggle = document.getElementById('mode-toggle');
+        const body = document.body;
+        
+        // 2. Function to apply the mode
+        function toggleDarkMode(isDark) {
+            if (isDark) {
+                body.classList.add('dark-mode');
+                modeToggle.checked = true;
+            } else {
+                body.classList.remove('dark-mode');
+                modeToggle.checked = false;
+            }
+        }
+
+        // 3. Load mode on page load from the browser's storage
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedMode = localStorage.getItem('darkMode');
+            if (storedMode === 'true') {
+                toggleDarkMode(true);
+            } else if (storedMode === 'false') {
+                toggleDarkMode(false);
+            }
+        });
+
+
+        modeToggle.addEventListener('change', (event) => {
+            const isDark = event.target.checked;
+            toggleDarkMode(isDark);
+            localStorage.setItem('darkMode', isDark); // Save the choice
+        });
+    </script>
+</body>
+</html>

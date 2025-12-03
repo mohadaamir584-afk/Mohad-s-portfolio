@@ -1,0 +1,250 @@
+/* * Mohad's Website Styles (Consistent and Clean) */
+
+:root {
+    --primary-color: #4A90E2;
+    --primary-hover-color: #3577c9;
+    --text-light: #222;
+    --text-dark: #e0e0e0;
+    --bg-light: #f3f3f3;
+    --bg-dark: #1a1a1a;
+    --card-light: #ffffff;
+    --card-dark: #343a3a;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    color: var(--text-light);
+    background-color: var(--bg-light);
+    transition: background-color 0.4s, color 0.4s;
+    min-height: 100vh;
+}
+
+/* --- Dark Mode Styles - Activated by JavaScript adding the .dark-mode class --- */
+body.dark-mode {
+    color: var(--text-dark);
+    background-color: var(--bg-dark);
+}
+
+body.dark-mode .container {
+    background-color: var(--card-dark);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode nav {
+    background-color: #2a2a2a;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode nav a {
+    color: var(--text-dark);
+}
+
+body.dark-mode nav a.active {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+
+/* --- Layout and Component Styling --- */
+.container {
+    max-width: 700px;
+    margin: 100px auto 40px auto; /* Margin top accounts for fixed nav */
+    padding: 40px;
+    text-align: center;
+    background-color: var(--card-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.4s, box-shadow 0.4s;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 32px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 15px;
+    font-size: 17px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--primary-hover-color);
+    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Navigation Bar --- */
+nav {
+    background-color: var(--card-light);
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    padding: 5px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* --- List Styling --- */
+.hobby-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 300px;
+    margin: 0 auto 30px auto;
+}
+
+.hobby-list li {
+    font-size: 20px;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ccc;
+    color: var(--text-light); 
+}
+body.dark-mode .hobby-list li {
+    border-bottom: 1px dashed #555;
+    color: var(--text-dark);
+}
+
+.hobby-list li:last-child {
+    border-bottom: none;
+}
+
+.badge {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 50%;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+
+/* --- Day / Night Toggle Switch Design --- */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 28px;
+    margin-left: 15px; 
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 28px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(18px);
+}
+
+/* --- Favourite Show Page Specific Styling (Background Image) --- */
+.aot-bg {
+    /* Uses the attackontitans.jpg file for the full background */
+    background: url('attackontitans.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aot-container {
+    background: rgba(0, 0, 0, 0.75); /* Dark, transparent overlay for readability */
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    max-width: 700px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+.aot-container h1 {
+    color: #f7d794; /* Accent color */
+}
+.aot-container p {
+    font-size: 20px;
+}
+.aot-container .btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.aot-container .btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}

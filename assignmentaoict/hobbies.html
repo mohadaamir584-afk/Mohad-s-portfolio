@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies - Mohad's Portfolio</title>
+    <!-- We're linking to your style.css file for all the visual design -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Mohad's Website</a>
+            <div class="nav-links">
+                <a href="hobbies.html" class="active">Hobbies</a>
+                <a href="skills.html">Skills</a>
+                <a href="favshow.html">Favourite Show</a>
+                
+                <!-- Day / Night Toggle Switch -->
+                <label class="switch">
+                    <input type="checkbox" id="mode-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main content area -->
+    <div class="container">
+        <h1>My Hobbies</h1>
+        <p>I enjoy staying active and competitive with these activities:</p>
+        
+        <ul class="hobby-list">
+            <li><span class="badge">1</span> MMA (Mixed Martial Arts)</li>
+            <li><span class="badge">2</span> Cricket</li>
+            <li><span class="badge">3</span> Football</li>
+        </ul>
+        
+        <a class="btn" href="skills.html">Go to Skills Page</a>
+    </div>
+
+    <script>
+        // --- BASIC JAVASCRIPT FOR DARK MODE ---
+        
+        // 1. Get the elements we need to work with
+        const modeToggle = document.getElementById('mode-toggle');
+        const body = document.body;
+
+        // 2. Function to turn dark mode ON or OFF
+        function toggleDarkMode(isDark) {
+            if (isDark) {
+                body.classList.add('dark-mode');
+                modeToggle.checked = true;
+            } else {
+                body.classList.remove('dark-mode');
+                modeToggle.checked = false;
+            }
+        }
+
+        // 3. Check when the page loads to remember the user's choice
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedMode = localStorage.getItem('darkMode');
+
+            if (storedMode === 'true') {
+                toggleDarkMode(true);
+            } else if (storedMode === 'false') {
+                toggleDarkMode(false);
+            }
+        });
+
+        // 4. Listen for clicks on the toggle switch
+        modeToggle.addEventListener('change', (event) => {
+            const isDark = event.target.checked;
+            toggleDarkMode(isDark);
+            localStorage.setItem('darkMode', isDark);
+        });
+    </script>
+</body>
+</html>
